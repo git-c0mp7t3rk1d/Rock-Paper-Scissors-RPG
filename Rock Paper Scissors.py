@@ -1,98 +1,93 @@
-# Rock Paper Scissors
-# Written by Sam
-# 18/03/25
-
-
-# Libraries:
 import random
 
-# Player Stats
-playerStr = random.randint(1,100)
-playerDex = random.randint(1,100)
-playerInt = random.randint(1,100)
-playerHP = random.randint(1,50) + 50
+def generate_stats():
+    return {
+        "Strength": random.randint(1, 100),
+        "Dexterity": random.randint(1, 100),
+        "Intelligence": random.randint(1, 100),
+        "HP": random.randint(1, 50) + 50
+    }
 
-# Functions:
-def theSystem():
-    print('Rock, Paper or Scissors?')
-    pInp = input('> ')
-    random_result = random.randint(1,3) # The RNG
-    # Draws
-    if pInp == 'Rock' and random_result == 1:
-        print('Enemy chose Rock')
-        print('It\'s a draw!')
-           
-    if pInp == 'Paper' and random_result == 2:
-        print('Enemy chose Paper')
-        print('It\'s a draw!')
-           
-    if pInp == 'Scissors' and random_result == 3:
-        print('Enemy chose Scissors')
-        print('It\'s a draw!')
-           
-    # Enemy victory
-    if pInp == 'Rock' and random_result == 2:
-        print('Enemy chose Paper')
-        print('Enemy wins!')
-           
-    if pInp == 'Paper' and random_result == 3:
-        print('Enemy chose Scissors')
-        print('Enemy wins!')
-           
-    if pInp == 'Scissors' and random_result == 1:
-        print('Enemy chose Rock')
-        print('Enemy wins!')
-           
-    # Player Victory
-    if pInp == 'Rock' and random_result == 3:
-        print('Enemy chose Scissors')
-        print('Player wins!')
-           
-    if pInp == 'Paper' and random_result == 1:
-        print('Enemy chose Rock')
-        print('Player wins!')
-           
-    if pInp == 'Scissors' and random_result == 2:
-        print('Enemy chose Paper')
-        print('Player wins!')
+def skill_check():
+    return random.randint(1, 100)
 
-def retPlayername():
-    print('Your name is:',playerName)
-def retPlayerstats():
-    print('Your Strength is: ',playerStr)
-    movLine()
-    print('Your Dexterity is: ',playerDex)
-    movLine()
-    print('Your Intelligence is: ',playerInt)
-def retPlayerhealth():
-        print('Your max HP is: ',playerHP)
+def rock_paper_scissors():
+    choices = {"rock": 1, "paper": 2, "scissors": 3}
+    pInp = input("Rock, Paper, or Scissors? > ").lower()
+    if pInp not in choices:
+        print("Invalid choice! Try again.")
+        return rock_paper_scissors()
+    
+    random_result = random.randint(1, 3)
+    enemy_choice = list(choices.keys())[random_result - 1]
+    print(f"Enemy chose {enemy_choice.capitalize()}")
+    
+    outcome = (choices[pInp] - random_result) % 3
+    if outcome == 0:
+        print("It's a draw!")
+    elif outcome == 1:
+        print("Enemy wins!")
+    else:
+        print("You win!")
 
-def movLine():
-    movLine1 = input('')
+def enter_dungeon():
+    print("You enter the dungeon...")
+    while True:
+        room = random.choice([room1, room2])
+        room()
+        if not continue_game():
+            break
 
-# Main Code:
-
-print('Welcome to Way of the Rock, a Rock Paper Scissors RPG game!')
-movLine()
-print('To enter the dungeon, you first need to create a character!')
-movLine()
-print('First, enter your character\'s name.')
-playerName = input('> ')
-print('Secondly, I will calculate your character\'s stats: ')
-retPlayerstats()
-movLine()
-print('Now we will calculate your character\'s health.')
-retPlayerhealth()
-movLine()
-print('With your character created, you can enter the dungeon!')
-
-# Rooms
-
-rooms = [room1]
+def continue_game():
+    choice = input("Do you continue? (Yes/No) > ").lower()
+    return choice == "yes"
 
 def room1():
-    print('The walls are dank and the room smells of rotting corpses.')
-    print('The room is empty.')
+    print("The room is dank and smells bad.")
+    actions()
 
+def room2():
+    print("This room is darker and eerily quiet.")
+    actions()
 
-roomThing
+def actions():
+    options = {
+        "trap": check_trap,
+        "item": check_item,
+        "look": look_around
+    }
+    actionChoice = input("What do you do? (trap/item/look) > ").lower()
+    if actionChoice in options:
+        options[actionChoice]()
+    else:
+        print("Invalid choice.")
+        actions()
+
+def check_trap():
+    if skill_check() >= player["Intelligence"]:
+        print("You successfully detect a trap!")
+    else:
+        print("You find nothing... but that doesn't mean it's safe.")
+
+def check_item():
+    print("You check your inventory: Bedrolls, Food, Water")
+
+def look_around():
+    print("You take a careful look around the room...")
+    print("It seems safe... or does it?")
+
+def main():
+    global player
+    print("Welcome to Way of the Rock, a Rock Paper Scissors RPG!")
+    player_name = input("Enter your character's name: > ")
+    player = generate_stats()
+    
+    print(f"Welcome, {player_name}! Here are your stats:")
+    for stat, value in player.items():
+        print(f"{stat}: {value}")
+    
+    enter_dungeon()
+    print("Game Over.")
+
+if __name__ == "__main__":
+    main()  
