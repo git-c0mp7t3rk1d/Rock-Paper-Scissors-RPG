@@ -12,6 +12,7 @@ I had ChatGPT clean up the code, and in the Rock Paper Scissors logic it uses th
 How does the maths behind the Rock Paper scissors even work?
 - The program uses the random library to generate 2 random numbers, both ranging from 1-3.
 - It then subtracts the enemies' number from the player's number, and uses the modulo operator to find the remainder of the sum. (It makes way more sense as an equation)
+- If the Modulo sum = 0, it's a draw, if the modulo sum = 1, player victory, if the modulo sum = 2, enemy victory.
 Here's an example
 
 **Player** || **Enemy** || **Modulo Sum** || **Result**
