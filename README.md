@@ -14,7 +14,7 @@ How does the maths behind the Rock Paper scissors even work?
 - It then subtracts the enemies' number from the player's number, and uses the modulo operator to find the remainder of the sum. (It makes way more sense as an equation)
 - If the Modulo sum = 0, it's a draw, if the modulo sum = 1, player victory, if the modulo sum = 2, enemy victory.
 
-Here's an example:
+**Here's an example**:
 
 **Player** || **Enemy** || **Modulo Sum** || **Result**
 
