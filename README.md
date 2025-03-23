@@ -7,4 +7,11 @@ The game is still in Pre-Alpha, so I'll release it when I've programmed 10 rooms
 
 Feel free to fork, I'd be happy to include some of your code and credit you!
 
-Edit: I had ChatGPT clean up the code, and in the Rock Paper Scissors logic it uses the modulus operator to avoid having to write out all the possibilities! It's pretty smart.
+I had ChatGPT clean up the code, and in the Rock Paper Scissors logic it uses the modulus operator to avoid having to write out all the possibilities! It's pretty smart.
+
+How does the maths behind the Rock Paper scissors even work?
+- The program uses the random library to generate 2 random numbers, both ranging from 1-3.
+- It then subtracts the enemies' number from the player's number, and uses the modulo operator to find the remainder of the sum. (It makes way more sense as an equation)
+Here's an example
+**Player** **Enemy**   **Modulo Sum**       **Result**
+Rock (1) ||	Rock (1) ||	(1 - 1) % 3 = 0 ||	Draw
