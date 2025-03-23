@@ -3,7 +3,7 @@
 
 This is a dungeon crawler RPG game that uses Rock Paper Scissors as the combat system.
 
-The game is still in Alpha, so I'll release it when I've programmed 10 rooms into the game.
+The game is still in Pre-Alpha, so I'll release it when I've programmed 10 rooms into the game.
 
 Feel free to fork, I'd be happy to include some of your code and credit you!
 
