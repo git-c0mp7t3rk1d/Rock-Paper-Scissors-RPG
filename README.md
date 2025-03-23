@@ -13,5 +13,7 @@ How does the maths behind the Rock Paper scissors even work?
 - The program uses the random library to generate 2 random numbers, both ranging from 1-3.
 - It then subtracts the enemies' number from the player's number, and uses the modulo operator to find the remainder of the sum. (It makes way more sense as an equation)
 Here's an example
+
 **Player** **Enemy**   **Modulo Sum**       **Result**
+
 Rock (1) ||	Rock (1) ||	(1 - 1) % 3 = 0 ||	Draw
