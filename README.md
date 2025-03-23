@@ -1,5 +1,9 @@
--- Basic Rock Paper Scissors RPG game --
-Written by Sam
+-- Rock Paper Scissors RPG game --
+-- Written by c0mp7t3rk1d-- 
+
+This is a dungeon crawler RPG game that uses Rock Paper Scissors as the combat system.
+
+The game is still in Alpha, so I'll release it when I've programmed 10 rooms into the game.
 
 Feel free to fork, I'd be happy to include some of your code and credit you!
 
