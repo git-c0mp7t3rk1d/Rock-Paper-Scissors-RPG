@@ -14,6 +14,6 @@ How does the maths behind the Rock Paper scissors even work?
 - It then subtracts the enemies' number from the player's number, and uses the modulo operator to find the remainder of the sum. (It makes way more sense as an equation)
 Here's an example
 
-**Player** **Enemy**   **Modulo Sum**       **Result**
+**Player** || **Enemy** || **Modulo Sum** || **Result**
 
 Rock (1) ||	Rock (1) ||	(1 - 1) % 3 = 0 ||	Draw
